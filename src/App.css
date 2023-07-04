@@ -1,38 +1,174 @@
-.App {
-  text-align: center;
+* {
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1, h2, h3, h5, h6, p {
+    margin: 0;
+    padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    background-color: #fff8ae;
+    font-family: 'Martian Mono', monospace;
+    margin: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container {
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+.header {
+    font-size: 45px;
+    font-weight: 600;
+    text-align: center;
+    margin-block: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.task-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 200px;
+    gap: 50px;
+}
+
+.task-input {
+    padding-inline: 20px;
+    padding-block: 10px;
+    border: 0;
+    grid-column: 1 / span 2;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: 'Martian Mono', monospace;
+}
+
+.task-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-item label {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 55ch;
+}
+
+.task-item input[type="checkbox"] {
+    position: relative;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.task-item input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #7b718d;
+    border-radius: 2px;
+    background-color:  white;
+}
+
+.task-item input[type="checkbox"]::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 5px;
+    width: 10px;
+    height: 5px;
+    border-left: 4px solid #ce5a5b;
+    border-bottom: 4px solid #ce5a5b;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.task-item input[type="checkbox"]:not(:checked)::after {
+    opacity: 0;
+}
+
+.task-item input[type="checkbox"]:checked::after {
+    opacity: 1;
+}
+
+/* Buttons' styles */
+
+.add-btn {
+    background-color: #7b718d;
+    color: white;
+}
+
+.add-btn:hover {
+    background-color: #54456d;
+}
+
+.active-filter-btn {
+    background-color: #7b718d;
+    color: white;
+}
+
+.filter-btn {
+    background-color: #c5d0d4;
+}
+
+.filter-btn:hover {
+    background-color: #7b718d;
+    color: white;
+}
+
+.active-filter-btn, .filter-btn, .delete-btn, .add-btn {
+    border: none;
+    border-radius: 25px;
+    padding-inline: 20px;
+    padding-block: 15px;
+    font-size: 16px;
+    font-family: 'Martian Mono', monospace;
+    transition: background-color .3s;
+}
+
+.active-filter-btn, .filter-btn {
+    width: 200px;
+}
+
+.delete-btn {
+    background-color: #ce5a5b;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #a02b2d;
+}
+
+
+/* Pannels' styles */
+
+.info {
+    font-size: 20px;
+}
+
+.info p {
+    margin-bottom: 10px;
+}
+
+.filter-pannel {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
 }
